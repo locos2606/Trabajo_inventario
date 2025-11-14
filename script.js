@@ -30,7 +30,7 @@ async function mostrarInventario() {
       inventarioBody.appendChild(fila);
     });
   } catch (err) {
-    console.error("Error cargando inventario:", err);
+    console.error("Error cargando archivo de inventario:", err);
   }
 }
 
@@ -54,12 +54,13 @@ form.addEventListener("submit", async (e) => {
   form.reset();
   mostrarInventario();
 });
-
+//para eliminar productos
 async function eliminarProducto(id) {
   if (!confirm("¿Eliminar este producto?")) return;
   await fetch(`${API}/${id}`, { method: "DELETE" });
   mostrarInventario();
 }
+
 
 async function editarProducto(id) {
   const nombre = prompt("Nuevo nombre:");
@@ -69,6 +70,7 @@ async function editarProducto(id) {
   if (!nombre || !cantidad || !precio) return;
 
   await fetch(`${API}/${id}`, {
+    
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ nombre, cantidad: parseFloat(cantidad), precio: parseFloat(precio) })
@@ -77,5 +79,5 @@ async function editarProducto(id) {
   mostrarInventario();
 }
 
-// iniciar
+// esto inicia 
 mostrarInventario();
