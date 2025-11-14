@@ -7,7 +7,7 @@ Una aplicación web completa para gestionar inventario de productos con frontend
 - **James David Ortiz
 - **Davis Segundo Girón**
 - **Samuel David Guerrero**
-
+ Gracias por su atencion
 ## 📋 Descripción
 
 Este proyecto es un sistema de gestión de inventario que permite:
